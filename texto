@@ -1,0 +1,61 @@
+ Introdução (Contexto e Objetivo)
+
+Problema: Validação manual de modelos de classificação (good/bad client) consome tempo e pode ser subjetiva.
+
+Solução: Um validador automático que avalia a qualidade das features e sugere melhorias, gerando um modelo otimizado via AutoML.
+
+Objetivo: Garantir robustez nos modelos (Tiers 4 e 5) com métricas claras e desafio automático.
+
+2. Funcionamento do Validador
+
+Entradas do Usuário:
+
+Métrica-alvo (ex: KS).
+
+Técnica do modelo existente (ex: Random Forest).
+
+Conjunto de features atual e conjunto de features disponíveis.
+
+Análise Automática:
+
+Qualidade das features:
+
+PSI (Population Stability Index).
+
+Concentração (viés em distribuições).
+
+Missings (valores faltantes).
+
+Saída: Lista de features aprovadas/reprovadas.
+
+3. AutoML (Desafiador de Modelos)
+
+Rodamos um AutoML apenas nas features aprovadas.
+
+Comparação automática:
+
+KS do modelo original vs. modelo desafiador.
+
+Técnica do modelo vencedor (ex: XGBoost).
+
+4. Relatório Final Automático
+
+Resumo das features validadas (aprovadas/recusadas).
+
+Desempenho do modelo vencedor (métricas + técnica).
+
+Comparação de KS e ganho percentual (se houver).
+
+5. Próximos Passos
+
+Validar o fluxo em mais casos reais.
+
+Expandir para outros tipos de modelo (ex: regressão).
+
+Por que é relevante?
+
+Padroniza a validação.
+
+Reduz tempo e viés humano.
+
+Entrega um modelo potencialmente melhorado automaticamente.
